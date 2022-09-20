@@ -35,14 +35,14 @@ const CustomTimelineItem =({title,text,link})=>(
 const Profile = () => {
   const onButtonClick = () => {
     // using Java Script method to get PDF file
-    fetch('SamplePDF.pdf').then(response => {
+    fetch('cv.pdf').then(response => {
         response.blob().then(blob => {
             // Creating new object of PDF file
             const fileURL = window.URL.createObjectURL(blob);
             // Setting various property values
             let alink = document.createElement('a');
             alink.href = fileURL;
-            alink.download = 'SamplePDF.pdf';
+            alink.download = 'cv.pdf';
             alink.click();
         })
     })
@@ -68,8 +68,8 @@ const Profile = () => {
           />
         ))}
         </CustomTimeline>
-       <div style={{textAlign:'center'}}>
-       <CustomButton text={'Download CV'} icon={<Download/>} />
+       <div style={{textAlign:'center'}} onClick={onButtonClick}>
+       <CustomButton text={'Download CV'} icon={<Download/>}  />
        </div>
       </div>
     </div>
